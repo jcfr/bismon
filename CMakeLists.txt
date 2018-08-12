@@ -147,7 +147,7 @@ function(bm_add_module src type)
   get_filename_component(src_name ${src} NAME)
   add_custom_command(TARGET ${name} PRE_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory ${bismon_BINARY_DIR}/modubin
-    COMMAND ${CMAKE_COMMAND} -E copy ${src} ${bismon_BINARY_DIR}/modules/${src_name}
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${src} ${bismon_BINARY_DIR}/modules/${src_name}
     )
 endfunction()
 
